@@ -18,6 +18,8 @@ public class Ventas {
         identificarMayor(ventas, productos, turnos);
 
         identificarMenor(ventas, productos, turnos);
+
+        ventasMayores500000(ventas, productos, turnos);
     }
 
     public static void registrarVentas(double[][] ventas, String[] productos, String[] turnos) {
@@ -97,5 +99,30 @@ public class Ventas {
         System.out.println("Turno: " + turnos[columna]);
     }
 
+    public static void ventasMayores500000(double[][] ventas, String[] productos, String[] turnos){
+
+        boolean encontrado = false;
+
+        System.out.println("Ventas mayores a $500.000: ");
+
+        for (int i = 0; i < ventas.length; i++){
+            for (int j = 0; j < ventas[i].length; j++){
+
+                if (ventas[i][j] > 500000) {
+                    System.out.println("Producto: " + productos[i]);
+                    System.out.println("Turno: " + turnos[j]);
+                    System.out.println("Valor: " + ventas[i][j]);
+
+                    encontrado = true;
+                }
+            }
+        }
+
+        if (!encontrado){
+            System.out.println("No hay ventas mayores a $500.000");
+        }
+    }
 }
+
+
 
