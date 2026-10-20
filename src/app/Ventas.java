@@ -26,5 +26,24 @@ public class Ventas {
         }
     }
 
+    public static double validarDato() {
+        double dato = 0;
+        while (true) {
+
+            if (!sc.hasNextDouble()) {
+                System.out.println("Error: Ingrese un valor válido");
+                sc.next();
+                continue;
+            }
+            
+            dato = sc.nextDouble();
+            if (dato < 0) {
+                System.out.println("Error: Ingrese un número mayor o igual a 0.");
+                continue;
+            }
+            return dato;
+        }
+    }
+
 }
 
