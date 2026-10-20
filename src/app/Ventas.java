@@ -16,6 +16,8 @@ public class Ventas {
         registrarVentas(ventas, productos, turnos);
 
         identificarMayor(ventas, productos, turnos);
+
+        identificarMenor(ventas, productos, turnos);
     }
 
     public static void registrarVentas(double[][] ventas, String[] productos, String[] turnos) {
@@ -67,6 +69,30 @@ public class Ventas {
         }
 
         System.out.println("La venta mayor fue de: $" + mayor);
+        System.out.println("Producto: " + productos[fila]);
+        System.out.println("Turno: " + turnos[columna]);
+    }
+
+    public static void identificarMenor(double[][] ventas,
+                                        String[] productos,
+                                        String[] turnos) {
+
+        double menor = ventas[0][0];
+        int fila = 0;
+        int columna = 0;
+
+        for (int i = 0; i < ventas.length; i++) {
+            for (int j = 0; j < ventas[i].length; j++) {
+
+                if (ventas[i][j] < menor) {
+                    menor = ventas[i][j];
+                    fila = i;
+                    columna = j;
+                }
+            }
+        }
+
+        System.out.println("La venta menor fue de: $" + menor);
         System.out.println("Producto: " + productos[fila]);
         System.out.println("Turno: " + turnos[columna]);
     }
